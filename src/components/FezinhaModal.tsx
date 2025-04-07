@@ -113,7 +113,7 @@ export function FezinhaModal({ isVisible, onStart, totalPrize, isEnding }: Fezin
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    Começar
+                    Apostar
                   </motion.button>
                 </>
               )}
