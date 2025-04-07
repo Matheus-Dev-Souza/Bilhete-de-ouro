@@ -1,4 +1,4 @@
-import { SlotSymbol, ambistaOutcome } from '../types/game';
+import { SlotSymbol, CambistaOutcome } from '../types/game';
 import { animals } from '../data/animals';
 import { CAMBISTA_OUTCOMES } from './cambistaOutcomes';
 import { getWeightedRandomAnimal } from './probabilityWeights';
