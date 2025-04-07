@@ -274,7 +274,7 @@ export function SlotMachine() {
               : 'bg-yellow-500 hover:bg-yellow-600'
           }`}
         >
-          {gameState.isSpinning ? 'Girando...' : 'Girar'}
+          {gameState.isSpinning ? 'Girando...' : 'Apostar'}
         </button>
 
         {!isFezinhaActive && (

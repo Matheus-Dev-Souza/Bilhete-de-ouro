@@ -108,13 +108,13 @@ export function FezinhaModal({ isVisible, onStart, totalPrize, isEnding }: Fezin
                     </p>
                   </div>
                   <motion.button
-                    onClick={onStart}
-                    className="w-full py-3 bg-white text-green-600 rounded-lg font-bold text-lg hover:bg-green-50 transition-colors"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    Apostar
-                  </motion.button>
+    onClick={onStart}
+    className="bg-orange-400 text-white font-extrabold text-2xl px-10 py-4 rounded-full shadow-lg border-4 border-white hover:bg-orange-500 transition"
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+  >
+    Apostar
+  </motion.button>
                 </>
               )}
             </div>
