@@ -19,6 +19,8 @@ import { calculateWinAmount } from '../utils/winCalculator';
 import { GAME_CONFIG } from '../config/gameConfig';
 import { initialGameState } from '../config/gameState';
 import type { GameState, SlotState } from '../types/game';
+import apostarImg from '../assets/width_199.webp'; // ajuste o caminho conforme sua estrutura
+
 
 export function SlotMachine() {
   const [gameState, setGameState] = useState<GameState>(initialGameState);
@@ -165,15 +167,26 @@ export function SlotMachine() {
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center p-4">
-      <Background />
-      <div className="relative z-10 bg-white/90 backdrop-blur-sm rounded-xl shadow-2xl p-8 max-w-2xl w-full">
-        <WinEffects show={gameState.currentWin > gameState.bet * 10} />
-        
-        <div className="flex items-center justify-center gap-2 mb-6">
-          <Ticket className="w-8 h-8 text-yellow-600" />
-          <h1 className="text-3xl font-bold text-yellow-600">Bilhete de Ouro</h1>
-        </div>
+<div className="relative min-h-screen flex flex-col items-center justify-center p-4">
+  <Background />
+  <div className="relative z-10 bg-white/90 backdrop-blur-sm rounded-xl shadow-2xl p-8 max-w-2xl w-full">
+    <WinEffects show={gameState.currentWin > gameState.bet * 10} />
+
+    {/* Seção do título "Bilhete de Ouro" com estilo customizado */}
+    <div className="flex items-center justify-center gap-2 mb-6">
+      <Ticket className="w-8 h-8 text-yellow-600" />
+      <h1
+        className="text-3xl font-bold"
+        style={{
+          fontFamily: `'Pacifico', cursive`, // fonte manuscrita ou estilosa
+          color: '#ce7143', // cor igual ao exemplo
+          letterSpacing: '1px',
+        }}
+      >
+        Bilhete de Ouro
+      </h1>
+    </div>
+
 
         {isFezinhaActive && (
           <div className="bg-green-100 text-green-800 px-4 py-2 rounded-lg mb-4 flex items-center justify-between">
@@ -265,17 +278,27 @@ export function SlotMachine() {
           </div>
         </div>
 
-        <button
-          onClick={spin}
-          disabled={gameState.isSpinning || gameState.balance < gameState.bet}
-          className={`w-full py-3 rounded-lg text-white font-bold text-lg ${
-            gameState.isSpinning || gameState.balance < gameState.bet
-              ? 'bg-gray-400'
-              : 'bg-yellow-500 hover:bg-yellow-600'
-          }`}
-        >
-          {gameState.isSpinning ? 'Girando...' : 'Apostar'}
-        </button>
+        <div className="flex justify-center items-center w-full my-4">
+          <button
+            onClick={spin}
+            disabled={gameState.isSpinning || gameState.balance < gameState.bet}
+            className={`relative w-28 h-28 flex items-center justify-center transition-all duration-200 shadow-md rounded-full
+              ${
+                gameState.isSpinning || gameState.balance < gameState.bet
+                  ? 'bg-gray-400 cursor-not-allowed'
+                  : 'hover:brightness-110'
+              }`}
+          >
+            <img
+              src={apostarImg}
+              alt="Apostar"
+              className="absolute inset-0 w-full h-full object-cover rounded-full"
+            />
+            <span className="text-white font-bold text-xl drop-shadow-md font-[cursive] z-10">
+              Apostar
+            </span>
+          </button>
+        </div>
 
         {!isFezinhaActive && (
           <AutoSpinControls
