@@ -167,26 +167,18 @@ export function SlotMachine() {
   };
 
   return (
-<div className="relative min-h-screen flex flex-col items-center justify-center p-4">
-  <Background />
-  <div className="relative z-10 bg-white/90 backdrop-blur-sm rounded-xl shadow-2xl p-8 max-w-2xl w-full">
-    <WinEffects show={gameState.currentWin > gameState.bet * 10} />
-
-    {/* Seção do título "Bilhete de Ouro" com estilo customizado */}
-    <div className="flex items-center justify-center gap-2 mb-6">
-      <Ticket className="w-8 h-8 text-yellow-600" />
-      <h1
-        className="text-3xl font-bold"
-        style={{
-          fontFamily: `'Pacifico', cursive`, // fonte manuscrita ou estilosa
-          color: '#ce7143', // cor igual ao exemplo
-          letterSpacing: '1px',
-        }}
-      >
-        Bilhete de Ouro
-      </h1>
-    </div>
-
+    <div className="relative min-h-screen flex flex-col items-center justify-center p-4">
+      <Background />
+      <div className="relative z-10 bg-white/90 backdrop-blur-sm rounded-xl shadow-2xl p-8 max-w-2xl w-full">
+        <WinEffects show={gameState.currentWin > gameState.bet * 10} />
+        
+        <div className="flex items-center justify-center gap-2 mb-6">
+          <Ticket className="w-8 h-8 text-yellow-600" />
+          <h1 className="text-3xl font-bold text-yellow-600 leading-tight text-center">
+            Bilhete <br />
+            <span className="font-MotterCorpus text-yellow-300 text-[3em]">DE OURO</span>
+          </h1>
+        </div>
 
         {isFezinhaActive && (
           <div className="bg-green-100 text-green-800 px-4 py-2 rounded-lg mb-4 flex items-center justify-between">
