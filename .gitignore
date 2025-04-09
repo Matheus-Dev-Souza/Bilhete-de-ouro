@@ -1,1 +1,29 @@
-node_modules/.cache
+# Dependências do Node.js
+node_modules/
+
+# Diretório de build
+dist/
+
+# Arquivos de log
+*.log
+
+# Cache do Vite
+.vite/
+
+# Variáveis de ambiente locais
+.env.local
+.env.*.local
+
+# Diretórios e arquivos de editores
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Arquivos específicos do macOS
+.DS_Store
+
+# Arquivos específicos do Windows
+Thumbs.db
