@@ -84,10 +84,10 @@
     background-color: #f59e0b; /* hover:bg-orange-500 */
   }
   
-  /* Text elements */
+  /* Text elements na tela inicial*/
   .fezinha-text {
-    color: rgba(255, 255, 255, 0.9); /* text-white/90 */
-    margin-bottom: 0.5rem; /* mb-2 */
+    color: rgba(0, 0, 0, 0.9); 
+
   }
   
   /* Animations */

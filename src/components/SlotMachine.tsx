@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState, useCallback, useEffect } from 'react';
 import { Ticket } from 'lucide-react';
@@ -50,7 +48,7 @@ export function SlotMachine() {
     freeSpinCount,
     isSpecialTicketAvailable,
     addFreeSpin,
-    // claimSpecialTicket
+   // claimSpecialTicket
   } = useFreeSpin();
 
   const {
@@ -174,7 +172,7 @@ export function SlotMachine() {
   return (
     <div className={styles.container}>
       <Background />
-      <div className={styles.panel}>
+      
         <WinEffects show={gameState.currentWin > gameState.bet * 10} />
         
         <div className={styles.header}>
@@ -184,7 +182,7 @@ export function SlotMachine() {
             <span className={styles.titleSpecial}>DE OURO</span>
           </h1>
         </div>
-  
+    <div className={styles.panel}>
         {isFezinhaActive && (
           <div className={styles.fezinhaBanner}>
             <span className={styles.fezinhaText}>Modo Fezinha Ativo!</span>
