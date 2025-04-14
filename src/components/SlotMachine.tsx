@@ -1,3 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState, useCallback, useEffect } from 'react';
 import { Ticket } from 'lucide-react';
 import { useFezinha } from '../hooks/useFezinha';
@@ -20,6 +23,7 @@ import { GAME_CONFIG } from '../config/gameConfig';
 import { initialGameState } from '../config/gameState';
 import type { GameState, SlotState } from '../types/game';
 import apostarImg from '../assets/width_199.webp'; // ajuste o caminho conforme sua estrutura
+import styles from './SlotMachine.module.css';
 
 
 export function SlotMachine() {
@@ -46,7 +50,7 @@ export function SlotMachine() {
     freeSpinCount,
     isSpecialTicketAvailable,
     addFreeSpin,
-    claimSpecialTicket
+    // claimSpecialTicket
   } = useFreeSpin();
 
   const {
@@ -166,99 +170,100 @@ export function SlotMachine() {
     setShowFezinhaEndModal(false);
   };
 
+
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center p-4">
+    <div className={styles.container}>
       <Background />
-      <div className="relative z-10 bg-white/90 backdrop-blur-sm rounded-xl shadow-2xl p-8 max-w-2xl w-full">
+      <div className={styles.panel}>
         <WinEffects show={gameState.currentWin > gameState.bet * 10} />
         
-        <div className="flex items-center justify-center gap-2 mb-6">
-          <Ticket className="w-8 h-8 text-yellow-600" />
-          <h1 className="text-3xl font-bold text-yellow-600 leading-tight text-center">
+        <div className={styles.header}>
+          <Ticket className={styles.ticketIcon} />
+          <h1 className={styles.title}>
             Bilhete <br />
-            <span className="font-MotterCorpus text-yellow-300 text-[3em]">DE OURO</span>
+            <span className={styles.titleSpecial}>DE OURO</span>
           </h1>
         </div>
-
+  
         {isFezinhaActive && (
-          <div className="bg-green-100 text-green-800 px-4 py-2 rounded-lg mb-4 flex items-center justify-between">
-            <span className="font-medium">Modo Fezinha Ativo!</span>
-            <span className="font-bold">Rodadas: {fezinhaSpins}</span>
+          <div className={styles.fezinhaBanner}>
+            <span className={styles.fezinhaText}>Modo Fezinha Ativo!</span>
+            <span className={styles.fezinhaCount}>Rodadas: {fezinhaSpins}</span>
           </div>
         )}
-
-        <div className="grid grid-cols-3 gap-4 mb-8">
+  
+        <div className={styles.columnsGrid}>
           <SpinColumn 
             isSpinning={spinningColumns.pule} 
             delay={0}
             onSpinComplete={() => handleColumnSpinComplete('pule')}
             isWinning={gameState.currentWin > 0}
           >
-            <div className="bg-yellow-50 p-4 rounded-lg text-center">
-              <h3 className="text-sm font-semibold mb-2">Pule</h3>
+            <div className={styles.columnContainer}>
+              <h3 className={styles.columnTitle}>Pule</h3>
               <PuleDisplay symbol={gameState.slots.pule} />
             </div>
           </SpinColumn>
-
+  
           <SpinColumn 
             isSpinning={spinningColumns.animal} 
             delay={0.3}
             onSpinComplete={() => handleColumnSpinComplete('animal')}
             isWinning={gameState.currentWin > 0}
           >
-            <div className="bg-yellow-50 p-4 rounded-lg text-center">
-              <h3 className="text-sm font-semibold mb-2">Bicho</h3>
-              <div className="text-4xl">
+            <div className={styles.columnContainer}>
+              <h3 className={styles.columnTitle}>Bicho</h3>
+              <div className={styles.animalSymbol}>
                 {gameState.slots.animal.type === 'animal' && 
                   (gameState.slots.animal.value as any).symbol}
               </div>
             </div>
           </SpinColumn>
-
+  
           <SpinColumn 
             isSpinning={spinningColumns.cambista} 
             delay={0.6}
             onSpinComplete={() => handleColumnSpinComplete('cambista')}
             isWinning={gameState.currentWin > 0}
           >
-            <div className="bg-yellow-50 p-4 rounded-lg text-center">
-              <h3 className="text-sm font-semibold mb-2">Via do Cambista</h3>
+            <div className={styles.columnContainer}>
+              <h3 className={styles.columnTitle}>Via do Cambista</h3>
               <CambistaSymbol symbol={gameState.slots.cambista} />
               {gameState.slots.cambista.message && (
-                <p className="text-sm mt-2 text-gray-600">{gameState.slots.cambista.message}</p>
+                <p className={styles.cambistaMessage}>{gameState.slots.cambista.message}</p>
               )}
             </div>
           </SpinColumn>
         </div>
-
-        <div className="flex justify-between items-center mb-6">
-          <div className="text-lg">
-            Saldo: <span className="font-bold">R$ {gameState.balance.toFixed(2)}</span>
+  
+        <div className={styles.gameInfo}>
+          <div className={styles.balanceInfo}>
+            Saldo: <span className={styles.balanceValue}>R$ {gameState.balance.toFixed(2)}</span>
           </div>
-          <div className="text-lg">
-            Último Prêmio: <span className="font-bold">R$ {gameState.currentWin.toFixed(2)}</span>
+          <div className={styles.prizeInfo}>
+            Último Prêmio: <span className={styles.prizeValue}>R$ {gameState.currentWin.toFixed(2)}</span>
           </div>
         </div>
-
-        <div className="flex justify-between items-center mb-6">
-          <div className="flex items-center gap-2">
+  
+        <div className={styles.controlsContainer}>
+          <div className={styles.betControls}>
             <button
               onClick={() => adjustBet(-0.20)}
               disabled={isAutoSpinning || isFezinhaActive}
-              className="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600 disabled:bg-gray-400"
+              className={styles.betButton}
             >
               -
             </button>
-            <span className="text-lg font-bold">R$ {gameState.bet.toFixed(2)}</span>
+            <span className={styles.betValue}>R$ {gameState.bet.toFixed(2)}</span>
             <button
               onClick={() => adjustBet(0.20)}
               disabled={isAutoSpinning || isFezinhaActive}
-              className="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600 disabled:bg-gray-400"
+              className={styles.betButton}
             >
               +
             </button>
           </div>
-          <div className="flex items-center gap-4">
+          <div className={styles.indicators}>
             <FreeSpinIndicator 
               count={freeSpinCount}
               isSpecialTicketAvailable={isSpecialTicketAvailable}
@@ -269,29 +274,28 @@ export function SlotMachine() {
             />
           </div>
         </div>
-
-        <div className="flex justify-center items-center w-full my-4">
+  
+        <div className={styles.spinButtonContainer}>
           <button
             onClick={spin}
             disabled={gameState.isSpinning || gameState.balance < gameState.bet}
-            className={`relative w-28 h-28 flex items-center justify-center transition-all duration-200 shadow-md rounded-full
-              ${
-                gameState.isSpinning || gameState.balance < gameState.bet
-                  ? 'bg-gray-400 cursor-not-allowed'
-                  : 'hover:brightness-110'
-              }`}
+            className={`${styles.spinButton} ${
+              gameState.isSpinning || gameState.balance < gameState.bet
+                ? styles.spinButtonDisabled
+                : styles.spinButtonActive
+            }`}
           >
             <img
               src={apostarImg}
               alt="Apostar"
-              className="absolute inset-0 w-full h-full object-cover rounded-full"
+              className={styles.spinButtonImage}
             />
-            <span className="text-white font-bold text-xl drop-shadow-md font-[cursive] z-10">
+            <span className={styles.spinButtonText}>
               Apostar
             </span>
           </button>
         </div>
-
+  
         {!isFezinhaActive && (
           <AutoSpinControls
             isAutoSpinning={isAutoSpinning}
@@ -300,23 +304,23 @@ export function SlotMachine() {
             onStop={handleStopAutoSpin}
           />
         )}
-
+  
         <WinningPopup
           prize={gameState.currentWin}
           isVisible={showWinPopup}
           onClose={handleCloseWinPopup}
         />
-
+  
         <PrizeNotification
           prize={gameState.currentWin}
           isVisible={showNotification}
         />
-
+  
         <FezinhaModal
           isVisible={isFezinhaTicketAvailable}
           onStart={startFezinhaMode}
         />
-
+  
         <FezinhaModal
           isVisible={showFezinhaEndModal}
           onStart={handleCloseFezinhaEndModal}

@@ -1,0 +1,196 @@
+.container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+  
+  /* Painel do jogo */
+  .panel {
+    position: relative;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    border-radius: 0.75rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 2rem;
+    max-width: 42rem;
+    width: 100%;
+  }
+  
+  /* Cabeçalho */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #d97706;
+    line-height: 1.25;
+    text-align: center;
+  }
+  
+  .titleSpecial {
+    font-family: 'MotterCorpus', sans-serif;
+    color: #f6e05e;
+    font-size: 3em;
+  }
+  
+  /* Banner Fezinha */
+  .fezinhaBanner {
+    background-color: #ecfdf5;
+    color: #065f46;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* Grid de colunas */
+  .columnsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .columnContainer {
+    background-color: #fefce8;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+  }
+  
+  .columnTitle {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Informações do jogo */
+  .gameInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Controles de aposta */
+  .betControls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .betButton {
+    padding: 0.25rem 0.75rem;
+    background-color: #eab308;
+    color: white;
+    border-radius: 0.25rem;
+  }
+  
+  .betButton:hover {
+    background-color: #ca8a04;
+  }
+  
+  .betButton:disabled {
+    background-color: #9ca3af;
+  }
+  
+  /* Botão de apostar */
+  .spinButton {
+    position: relative;
+    width: 7rem;
+    height: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition-property: all;
+    transition-duration: 200ms;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border-radius: 9999px;
+  }
+  
+  .spinButtonDisabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+  }
+  
+  .spinButtonImage {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 9999px;
+  }
+  
+  .spinButtonText {
+    color: white;
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: cursive;
+    z-index: 10;
+  }
+  
+  /* Indicadores */
+  .indicators {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  /* Classes adicionais */
+.ticketIcon {
+    width: 2rem;
+    height: 2rem;
+    color: #d97706;
+  }
+  
+  .fezinhaText {
+    font-weight: 500;
+  }
+  
+  .fezinhaCount {
+    font-weight: 700;
+  }
+  
+  .animalSymbol {
+    font-size: 2.25rem;
+  }
+  
+  .cambistaMessage {
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    color: #4b5563;
+  }
+  
+  .balanceInfo, .prizeInfo {
+    font-size: 1.125rem;
+  }
+  
+  .balanceValue, .prizeValue, .betValue {
+    font-weight: 700;
+  }
+  
+  .spinButtonActive:hover {
+    filter: brightness(110%);
+  }
+  
+  .spinButtonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 1rem 0;
+  }
