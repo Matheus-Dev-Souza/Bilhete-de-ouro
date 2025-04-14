@@ -1,0 +1,30 @@
+/* Background.css */
+.background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+    filter: brightness(0.8);
+  }
+  
+  /* Se você quiser manter a classe original que usa Tailwind */
+  .fixed.inset-0.bg-cover.bg-center.bg-no-repeat.z-0 {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+  }
+  
+  .brightness-80 {
+    filter: brightness(0.8);
+  }

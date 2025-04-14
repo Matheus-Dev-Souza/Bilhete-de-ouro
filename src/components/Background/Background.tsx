@@ -1,10 +1,11 @@
 import React from 'react';
-import backgroundImage from '../assets/images/background.png';
+import backgroundImage from '../../assets/images/background.png';
+import './Background.css'; // Importando o CSS
 
 export function Background() {
   return (
     <div 
-      className="fixed inset-0 bg-cover bg-center bg-no-repeat z-0 brightness-80"
+      className="background"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     />
   );
