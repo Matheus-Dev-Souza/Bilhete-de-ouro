@@ -1,0 +1,113 @@
+/* FezinhaModal.css */
+
+/* Overlay */
+.fezinha-modal-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    background-color: rgba(0, 0, 0, 0.5); /* bg-black/50 */
+    backdrop-filter: blur(4px); /* backdrop-blur-sm */
+  }
+  
+  /* Modal container */
+  .fezinha-modal-container {
+    background: linear-gradient(to bottom, #22c55e, #16a34a); /* bg-gradient-to-b from-green-500 to-green-600 */
+    border-radius: 1rem; /* rounded-2xl */
+    padding: 2rem; /* p-8 */
+    max-width: 28rem; /* max-w-md */
+    width: 100%;
+    margin: 0 1rem; /* mx-4 */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-2xl */
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Background animation elements */
+  .fezinha-bg-element {
+    position: absolute;
+    pointer-events: none;
+  }
+  
+  .fezinha-bg-icon {
+    width: 2rem; /* w-8 */
+    height: 2rem; /* h-8 */
+    color: rgba(134, 239, 172, 0.3); /* text-green-300/30 */
+  }
+  
+  /* Content */
+  .fezinha-content {
+    position: relative;
+    z-index: 10;
+  }
+  
+  /* Header elements */
+  .fezinha-header-icon {
+    width: 4rem; /* w-16 */
+    height: 4rem; /* h-16 */
+  }
+  
+  .fezinha-title {
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 700; /* font-bold */
+    text-align: center;
+    color: white;
+    margin-bottom: 1.5rem; /* mb-6 */
+  }
+  
+  /* Prize display */
+  .fezinha-prize-value {
+    font-size: 2.25rem; /* text-4xl */
+    font-weight: 700; /* font-bold */
+    color: white;
+  }
+  
+  /* Button */
+  .fezinha-button {
+    background-color: #f97316; /* bg-orange-400 */
+    color: white;
+    font-weight: 800; /* font-extrabold */
+    font-size: 1.5rem; /* text-2xl */
+    padding: 1rem 2.5rem; /* px-10 py-4 */
+    border-radius: 9999px; /* rounded-full */
+    border: 4px solid white;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .fezinha-button:hover {
+    background-color: #f59e0b; /* hover:bg-orange-500 */
+  }
+  
+  /* Text elements */
+  .fezinha-text {
+    color: rgba(255, 255, 255, 0.9); /* text-white/90 */
+    margin-bottom: 0.5rem; /* mb-2 */
+  }
+  
+  /* Animations */
+  @keyframes floatScale {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+  
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  @keyframes pulseOpacity {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+  }
+  
+  @keyframes gentleSway {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    75% { transform: rotate(-10deg); }
+  }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { cn } from '../utils/cn';
+import { cn } from '../../utils/cn';
+import './SpinColumn.css'; // Import the CSS
 
 interface SpinColumnProps {
   children: React.ReactNode;
@@ -19,9 +20,9 @@ export function SpinColumn({
 }: SpinColumnProps) {
   return (
     <div className={cn(
-      "relative rounded-lg overflow-hidden",
-      isSpinning && "shadow-[0_0_15px_rgba(255,255,255,0.5)]",
-      isWinning && "animate-flash"
+      "spin-column-container",
+      isSpinning && "spin-column-spinning",
+      isWinning && "spin-column-winning"
     )}>
       <AnimatePresence mode="wait">
         <motion.div
@@ -36,7 +37,7 @@ export function SpinColumn({
             }
           } : { rotateX: 0 }}
           onAnimationComplete={onSpinComplete}
-          className="w-full h-full"
+          className="spin-column-content"
         >
           {children}
         </motion.div>

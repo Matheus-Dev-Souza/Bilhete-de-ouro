@@ -1,5 +1,6 @@
 import React from 'react';
 import { Gift } from 'lucide-react';
+import './FreeSpinIndicator.css'; 
 
 interface FreeSpinIndicatorProps {
   count: number;
@@ -8,13 +9,13 @@ interface FreeSpinIndicatorProps {
 
 export function FreeSpinIndicator({ count, isSpecialTicketAvailable }: FreeSpinIndicatorProps) {
   return (
-    <div className="flex items-center gap-2">
-      <div className="text-lg">
-        Rodadas Grátis: <span className="font-bold">{count}/20</span>
+    <div className="free-spin-container">
+      <div className="free-spin-text">
+        Rodadas Grátis: <span className="free-spin-count">{count}/20</span>
       </div>
       {isSpecialTicketAvailable && (
-        <div className="animate-pulse">
-          <Gift className="w-6 h-6 text-yellow-500" />
+        <div className="free-spin-icon-container">
+          <Gift className="free-spin-icon" />
         </div>
       )}
     </div>

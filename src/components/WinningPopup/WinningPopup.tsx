@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Trophy, Coins } from 'lucide-react';
+import './WinningPopup.css';
 
 interface WinningPopupProps {
   prize: number;
@@ -13,15 +14,11 @@ export function WinningPopup({ prize, isVisible, onClose }: WinningPopupProps) {
   
   useEffect(() => {
     if (isVisible && prize > 0) {
-      // Reset counter when popup opens
       setCurrentValue(0);
-      
-      // Calculate increment steps
-      const steps = 20; // Total steps for the animation
+      const steps = 20;
       const increment = prize / steps;
-      const intervalTime = 100; // 100ms between each increment
+      const intervalTime = 100;
       
-      // Animate the counter
       const interval = setInterval(() => {
         setCurrentValue(prev => {
           const next = prev + increment;
@@ -29,7 +26,6 @@ export function WinningPopup({ prize, isVisible, onClose }: WinningPopupProps) {
         });
       }, intervalTime);
       
-      // Auto-close after 5 seconds
       const timeout = setTimeout(() => {
         onClose();
       }, 5000);
@@ -55,26 +51,23 @@ export function WinningPopup({ prize, isVisible, onClose }: WinningPopupProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 flex items-center justify-center z-50"
+          className="winning-popup-overlay"
         >
-          {/* Overlay */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.8 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 bg-black"
+            className="winning-popup-backdrop"
           />
           
-          {/* Content Container */}
           <motion.div
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.5, opacity: 0 }}
-            className="relative bg-gradient-to-b from-yellow-400 to-yellow-600 rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl"
+            className="winning-popup-content"
           >
-            {/* Coins Animation */}
             {prize > 10 && (
-              <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <div className="winning-coins-container">
                 {[...Array(20)].map((_, i) => (
                   <motion.div
                     key={i}
@@ -94,16 +87,15 @@ export function WinningPopup({ prize, isVisible, onClose }: WinningPopupProps) {
                       delay: Math.random() * 2,
                       repeat: Infinity
                     }}
-                    className="absolute"
+                    className="winning-coin"
                   >
-                    <Coins className="w-8 h-8 text-yellow-300" />
+                    <Coins className="w-8 h-8" />
                   </motion.div>
                 ))}
               </div>
             )}
             
-            {/* Trophy Icon */}
-            <div className="flex justify-center mb-4">
+            <div className="winning-trophy-container">
               <motion.div
                 animate={{ 
                   scale: [1, 1.2, 1],
@@ -114,22 +106,20 @@ export function WinningPopup({ prize, isVisible, onClose }: WinningPopupProps) {
                   repeat: Infinity
                 }}
               >
-                <Trophy className="w-16 h-16 text-yellow-300" />
+                <Trophy className="winning-trophy" />
               </motion.div>
             </div>
             
-            {/* Message */}
             <motion.h2
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
-              className="text-4xl font-bold text-center text-white mb-6 text-shadow-lg"
+              className="winning-message"
             >
               {getMessage(prize)}
             </motion.h2>
             
-            {/* Prize Amount */}
             <motion.div
-              className="text-center"
+              className="winning-prize-container"
               animate={{
                 boxShadow: [
                   "0 0 20px rgba(255,255,255,0.2)",
@@ -142,7 +132,7 @@ export function WinningPopup({ prize, isVisible, onClose }: WinningPopupProps) {
                 repeat: Infinity
               }}
             >
-              <span className="text-6xl font-bold text-white">
+              <span className="winning-prize-amount">
                 R$ {currentValue.toFixed(2)}
               </span>
             </motion.div>

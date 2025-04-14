@@ -1,0 +1,37 @@
+/* CambistaSymbol.css */
+
+/* Estilos base para todos os ícones */
+.cambista-icon {
+    width: 2rem;    /* equivalente a w-8 (8 * 0.25rem = 2rem) */
+    height: 2rem;   /* equivalente a h-8 */
+    margin: 0 auto; /* equivalente a mx-auto */
+  }
+  
+  /* Cores específicas para cada tipo de símbolo */
+  .cambista-icon.seal {
+    color: #16a34a; /* equivalente a text-green-600 */
+  }
+  
+  .cambista-icon.smoke {
+    color: #4b5563; /* equivalente a text-gray-600 */
+  }
+  
+  .cambista-icon.freeSpin {
+    color: #2563eb; /* equivalente a text-blue-600 */
+  }
+  
+  .cambista-icon.bankTrade {
+    color: #ca8a04; /* equivalente a text-yellow-600 */
+  }
+  
+  .cambista-icon.nextTime {
+    color: #9333ea; /* equivalente a text-purple-600 */
+  }
+  
+  .cambista-icon.fezinha {
+    color: #4ade80; /* equivalente a text-green-400 */
+  }
+  
+  .cambista-icon.loss {
+    color: #dc2626; /* equivalente a text-red-600 */
+  }

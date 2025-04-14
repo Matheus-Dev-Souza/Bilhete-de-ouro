@@ -1,0 +1,18 @@
+/* WinEffects.css */
+
+.win-effects-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+  }
+  
+  .win-effect-particle {
+    position: absolute;
+    width: 0.5rem; /* w-2 */
+    height: 0.5rem; /* h-2 */
+    background-color: #facc15; /* bg-yellow-400 */
+    border-radius: 9999px; /* rounded-full */
+  }

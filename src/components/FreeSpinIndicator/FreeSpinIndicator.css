@@ -1,0 +1,35 @@
+/* FreeSpinIndicator.css */
+
+.free-spin-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* equivalent to gap-2 */
+  }
+  
+  .free-spin-text {
+    font-size: 1.125rem; /* equivalent to text-lg (18px) */
+    line-height: 1.75rem; /* default line-height for text-lg */
+  }
+  
+  .free-spin-count {
+    font-weight: 700; /* equivalent to font-bold */
+  }
+  
+  .free-spin-icon-container {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; /* equivalent to animate-pulse */
+  }
+  
+  .free-spin-icon {
+    width: 1.5rem; /* equivalent to w-6 (24px) */
+    height: 1.5rem; /* equivalent to h-6 */
+    color: #eab308; /* equivalent to text-yellow-500 */
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }

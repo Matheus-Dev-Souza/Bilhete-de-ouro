@@ -1,0 +1,29 @@
+/* SpinColumn.css */
+
+.spin-column-container {
+    position: relative;
+    border-radius: 0.5rem; /* rounded-lg */
+    overflow: hidden;
+  }
+  
+  .spin-column-spinning {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* shadow-[0_0_15px_rgba(255,255,255,0.5)] */
+  }
+  
+  .spin-column-winning {
+    animation: flash 0.5s ease-in-out infinite alternate;
+  }
+  
+  @keyframes flash {
+    from {
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    to {
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    }
+  }
+  
+  .spin-column-content {
+    width: 100%;
+    height: 100%;
+  }

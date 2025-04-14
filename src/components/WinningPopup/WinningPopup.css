@@ -1,0 +1,115 @@
+/* WinningPopup.css */
+
+.winning-popup-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50; /* z-50 */
+  }
+  
+  .winning-popup-backdrop {
+    position: absolute;
+    inset: 0;
+    background-color: black;
+    opacity: 0.8;
+  }
+  
+  .winning-popup-content {
+    position: relative;
+    background: linear-gradient(to bottom, #facc15, #ca8a04); /* from-yellow-400 to-yellow-600 */
+    border-radius: 1rem; /* rounded-2xl */
+    padding: 2rem; /* p-8 */
+    max-width: 28rem; /* max-w-md */
+    width: 100%;
+    margin: 0 1rem; /* mx-4 */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-2xl */
+  }
+  
+  /* Coins animation */
+  .winning-coins-container {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  
+  .winning-coin {
+    position: absolute;
+    width: 2rem; /* w-8 */
+    height: 2rem; /* h-8 */
+    color: #fde047; /* text-yellow-300 */
+  }
+  
+  /* Trophy styles */
+  .winning-trophy-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem; /* mb-4 */
+  }
+  
+  .winning-trophy {
+    width: 4rem; /* w-16 */
+    height: 4rem; /* h-16 */
+    color: #fde047; /* text-yellow-300 */
+  }
+  
+  /* Message styles */
+  .winning-message {
+    font-size: 2.25rem; /* text-4xl */
+    font-weight: 700; /* font-bold */
+    text-align: center;
+    color: white;
+    margin-bottom: 1.5rem; /* mb-6 */
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* text-shadow-lg */
+  }
+  
+  /* Prize amount styles */
+  .winning-prize-container {
+    text-align: center;
+  }
+  
+  .winning-prize-amount {
+    font-size: 3.75rem; /* text-6xl */
+    font-weight: 700; /* font-bold */
+    color: white;
+  }
+  
+  /* Animations */
+  @keyframes floatPulse {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
+    }
+  }
+  
+  @keyframes trophyWobble {
+    0%, 100% {
+      transform: scale(1) rotate(0deg);
+    }
+    25% {
+      transform: scale(1.2) rotate(-10deg);
+    }
+    75% {
+      transform: scale(1.2) rotate(10deg);
+    }
+  }
+  
+  @keyframes coinFall {
+    from {
+      transform: translateY(-20%) rotate(0deg);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(120%) rotate(360deg);
+      opacity: 0;
+    }
+  }

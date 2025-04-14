@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import './WinEffects.css'; // Import the CSS
 
 interface WinEffectsProps {
   show: boolean;
@@ -9,11 +10,11 @@ export function WinEffects({ show }: WinEffectsProps) {
   if (!show) return null;
 
   return (
-    <div className="absolute inset-0 pointer-events-none">
+    <div className="win-effects-container">
       {[...Array(20)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-2 h-2 bg-yellow-400 rounded-full"
+          className="win-effect-particle"
           initial={{
             x: "50%",
             y: "50%",

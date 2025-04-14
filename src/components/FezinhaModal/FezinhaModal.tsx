@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Clover, Star } from 'lucide-react';
+import './FezinhaModal.css';
 
 interface FezinhaModalProps {
   isVisible: boolean;
@@ -17,20 +18,20 @@ export function FezinhaModal({ isVisible, onStart, totalPrize, isEnding }: Fezin
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 flex items-center justify-center z-50 bg-black/50 backdrop-blur-sm"
+          className="fezinha-modal-overlay"
         >
           <motion.div
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.5, opacity: 0 }}
-            className="bg-gradient-to-b from-green-500 to-green-600 rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl relative overflow-hidden"
+            className="fezinha-modal-container"
           >
             {/* Background Animation */}
-            <div className="absolute inset-0 pointer-events-none">
+            <div className="fezinha-bg-animation">
               {[...Array(10)].map((_, i) => (
                 <motion.div
                   key={i}
-                  className="absolute"
+                  className="fezinha-bg-element"
                   initial={{ 
                     top: `${Math.random() * 100}%`,
                     left: `${Math.random() * 100}%`,
@@ -46,16 +47,16 @@ export function FezinhaModal({ isVisible, onStart, totalPrize, isEnding }: Fezin
                     delay: Math.random() * 2
                   }}
                 >
-                  <Clover className="w-8 h-8 text-green-300/30" />
+                  <Clover className="fezinha-bg-icon" />
                 </motion.div>
               ))}
             </div>
 
             {/* Content */}
-            <div className="relative z-10">
+            <div className="fezinha-content">
               {isEnding ? (
                 <>
-                  <div className="flex justify-center mb-6">
+                  <div className="fezinha-header-icon-container">
                     <motion.div
                       animate={{ 
                         rotate: [0, 10, -10, 0],
@@ -63,18 +64,18 @@ export function FezinhaModal({ isVisible, onStart, totalPrize, isEnding }: Fezin
                       }}
                       transition={{ duration: 0.5, repeat: Infinity }}
                     >
-                      <Star className="w-16 h-16 text-yellow-300" />
+                      <Star className="fezinha-header-icon text-yellow-300" />
                     </motion.div>
                   </div>
-                  <h2 className="text-3xl font-bold text-center text-white mb-6">
+                  <h2 className="fezinha-title">
                     Modo Fezinha Concluído!
                   </h2>
-                  <div className="text-center mb-6">
-                    <p className="text-white/90 mb-2">Total Ganho:</p>
+                  <div className="fezinha-prize-container">
+                    <p className="fezinha-text">Total Ganho:</p>
                     <motion.div
                       initial={{ scale: 0.5 }}
                       animate={{ scale: 1 }}
-                      className="text-4xl font-bold text-white"
+                      className="fezinha-prize-value"
                     >
                       R$ {totalPrize?.toFixed(2)}
                     </motion.div>
@@ -82,7 +83,7 @@ export function FezinhaModal({ isVisible, onStart, totalPrize, isEnding }: Fezin
                 </>
               ) : (
                 <>
-                  <div className="flex justify-center mb-6">
+                  <div className="fezinha-header-icon-container">
                     <motion.div
                       animate={{ 
                         scale: [1, 1.2, 1],
@@ -90,7 +91,7 @@ export function FezinhaModal({ isVisible, onStart, totalPrize, isEnding }: Fezin
                       }}
                       transition={{ duration: 2, repeat: Infinity }}
                     >
-                      <Clover className="w-16 h-16 text-white" />
+                      <Clover className="fezinha-header-icon" />
                     </motion.div>
                   </div>
                   <motion.h2
@@ -98,23 +99,23 @@ export function FezinhaModal({ isVisible, onStart, totalPrize, isEnding }: Fezin
                       scale: [1, 1.05, 1],
                     }}
                     transition={{ duration: 1, repeat: Infinity }}
-                    className="text-3xl font-bold text-center text-white mb-6"
+                    className="fezinha-title"
                   >
                     MODO FEZINHA ATIVADO!
                   </motion.h2>
-                  <div className="text-center mb-6">
-                    <p className="text-white/90">
+                  <div className="fezinha-text-container">
+                    <p className="fezinha-text">
                       Prepare-se para 5 rodadas com multiplicador máximo!
                     </p>
                   </div>
                   <motion.button
-    onClick={onStart}
-    className="bg-orange-400 text-white font-extrabold text-2xl px-10 py-4 rounded-full shadow-lg border-4 border-white hover:bg-orange-500 transition"
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-  >
-    Apostar
-  </motion.button>
+                    onClick={onStart}
+                    className="fezinha-button"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Apostar
+                  </motion.button>
                 </>
               )}
             </div>

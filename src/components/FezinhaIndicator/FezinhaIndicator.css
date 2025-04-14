@@ -1,0 +1,35 @@
+/* FezinhaIndicator.css */
+
+.fezinha-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* equivalente a gap-2 (2 * 0.25rem = 0.5rem) */
+  }
+  
+  .fezinha-text {
+    font-size: 1.125rem; /* equivalente a text-lg */
+    line-height: 1.75rem;
+  }
+  
+  .fezinha-count {
+    font-weight: 700; /* equivalente a font-bold */
+  }
+  
+  .fezinha-icon-container {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; /* equivalente a animate-pulse */
+  }
+  
+  .fezinha-icon {
+    width: 1.5rem; /* equivalente a w-6 */
+    height: 1.5rem; /* equivalente a h-6 */
+    color: #22c55e; /* equivalente a text-green-500 */
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }

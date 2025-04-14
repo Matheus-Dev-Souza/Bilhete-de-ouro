@@ -1,6 +1,7 @@
 import React from 'react';
 import { Flame } from 'lucide-react';
 import { SlotSymbol } from '../types/game';
+import './PuleDisplay.css'; 
 
 interface PuleDisplayProps {
   symbol: SlotSymbol;
@@ -13,14 +14,14 @@ export function PuleDisplay({ symbol }: PuleDisplayProps) {
   const isForra = multiplier === 5;
 
   return (
-    <div className="flex items-center justify-center gap-2">
+    <div className="pule-display-container">
       {isForra ? (
         <>
-          <Flame className="w-8 h-8 text-red-500 animate-pulse" />
-          <span className="text-2xl font-bold text-red-500">Forra!</span>
+          <Flame className="pule-flame-icon" />
+          <span className="pule-forra-text">Forra!</span>
         </>
       ) : (
-        <span className="text-4xl">{multiplier}x</span>
+        <span className="pule-multiplier">{multiplier}x</span>
       )}
     </div>
   );
