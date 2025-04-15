@@ -10,9 +10,9 @@ interface FezinhaIndicatorProps {
 export function FezinhaIndicator({ count, isSpecialTicketAvailable }: FezinhaIndicatorProps) {
   return (
     <div className="fezinha-container">
-      <div className="fezinha-text">
+    {/*  <div className="fezinha-text">
         Fezinha: <span className="fezinha-count">{count}/25</span>
-      </div>
+      </div> */} 
       {isSpecialTicketAvailable && (
         <div className="fezinha-icon-container">
           <Clover className="fezinha-icon" />

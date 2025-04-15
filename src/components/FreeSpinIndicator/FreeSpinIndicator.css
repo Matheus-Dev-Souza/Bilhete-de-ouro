@@ -4,11 +4,16 @@
     display: flex;
     align-items: center;
     gap: 0.5rem; /* equivalent to gap-2 */
+  
   }
   
   .free-spin-text {
-    font-size: 1.25rem; /* equivalent to text-lg (18px) */
-    line-height: 1.75rem; /* default line-height for text-lg */
+    position: relative;
+    font-size: 1.1rem; 
+    line-height: 1.75rem;
+    margin-left: 421px;
+    top: -30px;
+
   }
   
   .free-spin-count {

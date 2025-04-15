@@ -3,16 +3,19 @@
 .fezinha-container {
     display: flex;
     align-items: center;
-    gap: 0.5rem; /* equivalente a gap-2 (2 * 0.25rem = 0.5rem) */
+    gap: 0.5rem; 
+    
   }
   
   .fezinha-text {
     font-size: 1.125rem; /* equivalente a text-lg */
     line-height: 1.75rem;
+    margin-right: 90px;
   }
   
   .fezinha-count {
     font-weight: 700; /* equivalente a font-bold */
+    
   }
   
   .fezinha-icon-container {

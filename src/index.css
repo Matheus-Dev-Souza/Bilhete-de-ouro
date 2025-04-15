@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,5 +13,13 @@
   font-family: 'MotterCorpus';
   src: url('./assets/fonts/MotterCorpus.woff2') format('woff2');
   font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'ITC Motter Corpus';
+  src: url('/fonts/ITCMotterCorpus.ttf') format('truetype'); /* ajuste o caminho */
+  font-weight: bold;
   font-style: normal;
 }

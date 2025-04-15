@@ -176,7 +176,7 @@ export function SlotMachine() {
         <WinEffects show={gameState.currentWin > gameState.bet * 10} />
         
         <div className={styles.header}>
-          <Ticket className={styles.ticketIcon} />
+         {/*  <Ticket className={styles.ticketIcon} />  */}
           <h1 className={styles.title}>
             Bilhete <br />
             <span className={styles.titleSpecial}>DE OURO</span>
