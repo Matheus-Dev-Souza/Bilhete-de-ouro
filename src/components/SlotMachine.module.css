@@ -42,7 +42,7 @@
     font-family: 'Luckiest Guy', cursive;
     font-size: 2.7rem;
     font-weight: 700;
-    color: #ce7143;
+    color: #e9b316;
     line-height: 1.25;
     text-align: left;
     -webkit-text-stroke: 1px black;
@@ -109,13 +109,13 @@
   
   .betButton {
     padding: 0.25rem 0.75rem;
-    background-color: #eab308;
+    background-color: #e9b316;
     color: white;
     border-radius: 0.25rem;
   }
   
   .betButton:hover {
-    background-color: #ca8a04;
+    background-color: #161102;
   }
   
   .betButton:disabled {
@@ -134,6 +134,7 @@
     transition-duration: 200ms;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     border-radius: 9999px;
+    
   }
   
   .spinButtonDisabled {
@@ -169,7 +170,7 @@
 .ticketIcon {
     width: 2rem;
     height: 2rem;
-    color: #d97706;
+    color: #e9b316;
   }
   
   .fezinhaText {
@@ -208,4 +209,37 @@
     align-items: center;
     width: 100%;
     margin: 1rem 0;
+    
   }
+  
+
+  .buttonWrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .backgroundBarLeft,
+  .backgroundBarRight {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 3rem;
+    width: 300px;
+    background-color: #e9b316;
+    border-radius: 0.5rem;
+    z-index: 1;
+  }
+  
+  .backgroundBarLeft {
+    left: -250px;
+  }
+  
+  .backgroundBarRight {
+    right: -250px;
+  }
+  
+  .spinButton {
+    position: relative;
+    z-index: 2; /* Garante que o botão fique na frente das barras */
+  }
+  

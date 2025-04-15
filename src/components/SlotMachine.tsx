@@ -274,25 +274,29 @@ export function SlotMachine() {
         </div>
   
         <div className={styles.spinButtonContainer}>
-          <button
-            onClick={spin}
-            disabled={gameState.isSpinning || gameState.balance < gameState.bet}
-            className={`${styles.spinButton} ${
-              gameState.isSpinning || gameState.balance < gameState.bet
-                ? styles.spinButtonDisabled
-                : styles.spinButtonActive
-            }`}
-          >
-            <img
-              src={apostarImg}
-              alt="Apostar"
-              className={styles.spinButtonImage}
-            />
-            <span className={styles.spinButtonText}>
-              Apostar
-            </span>
-          </button>
-        </div>
+            <div className={styles.buttonWrapper}>
+              <div className={styles.backgroundBarLeft}></div>
+              <div className={styles.backgroundBarRight}></div>
+
+              <button
+                onClick={spin}
+                disabled={gameState.isSpinning || gameState.balance < gameState.bet}
+                className={`${styles.spinButton} ${
+                  gameState.isSpinning || gameState.balance < gameState.bet
+                    ? styles.spinButtonDisabled
+                    : styles.spinButtonActive
+                }`}
+              >
+                <img
+                  src={apostarImg}
+                  alt="Apostar"
+                  className={styles.spinButtonImage}
+                />
+                <span className={styles.spinButtonText}>Apostar</span>
+              </button>
+            </div>
+          </div>
+
   
         {!isFezinhaActive && (
           <AutoSpinControls

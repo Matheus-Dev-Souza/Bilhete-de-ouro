@@ -15,7 +15,11 @@
     transition: background-color 0.2s ease;
     margin-left: auto;
     margin-right: auto;
-  }
+    -webkit-transition: background-color 0.2s ease;
+    -moz-transition: background-color 0.2s ease;
+    -ms-transition: background-color 0.2s ease;
+    -o-transition: background-color 0.2s ease;
+}
   
   .buttonStop {
     background-color: #ef4444; /* red-500 */
@@ -26,14 +30,13 @@
   }
   
   .buttonAutoSpin {
-    background-color: #f59e0b; /* yellow-500 */
-    margin-right: 0px;
-    position: relative;
-    top: -90px;
+    background-color: #e9b316; /* yellow-500 */
+   /*  position: relative; */
+  /*  top: -90px; */
   }
   
   .buttonAutoSpin:hover {
-    background-color: #d97706; /* yellow-600 */
+    background-color: #673c0b; /* yellow-600 */
   }
   
   .overlay {
