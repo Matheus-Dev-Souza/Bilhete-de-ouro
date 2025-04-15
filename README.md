@@ -112,7 +112,7 @@ Os estilos estão organizados de forma modular com o uso do **Tailwind CSS**. Ca
 **Matheus Gonçalves**  
 Especialista em tráfego pago, sistemas e marketing digital.
 
-[LinkedIn](https://linkedin.com/in/matheusgoncalves) | [GitHub](https://github.com/seu-usuario)
+[LinkedIn](https://www.linkedin.com/in/matheus-gonçalves-578b4714b/) | [GitHub](https://github.com/Matheus-Dev-Souza/)
 
 ---
 
