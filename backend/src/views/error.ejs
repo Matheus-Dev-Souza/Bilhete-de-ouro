@@ -1,0 +1,61 @@
+<!-- src/views/error.ejs -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Erro na Aplicação</title>
+  <style>
+    .error-container { text-align: center; padding: 50px; }
+    .error-code { font-size: 120px; color: #dc3545; }
+    .error-message { font-size: 24px; margin: 20px 0; }
+  </style>
+</head>
+<body>
+  <div class="error-container">
+    <div class="error-code"><%= statusCode %></div>
+    <div class="error-message"><%= message %></div>
+    <% if (process.env.NODE_ENV === 'development') { %>
+      <pre><%= stack %></pre>
+    <% } %>
+  </div>
+</body>
+</html>
+
+<!-- src/views/admin/dashboard.ejs -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel Administrativo</title>
+  <%- include('../partials/admin-head') %>
+</head>
+<body>
+  <%- include('../partials/admin-nav') %>
+  
+  <main class="container">
+    <h1>Métricas Financeiras</h1>
+    
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">RTP Atual</h5>
+            <p class="display-4"><%= rtp %>%</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">GGR Total</h5>
+            <p class="display-4">R$ <%= ggr.toFixed(2) %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <%- include('../partials/admin-scripts') %>
+</body>
+</html>
