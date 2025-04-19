@@ -1,12 +1,12 @@
 let totalSpins = 0;
 let totalWins = 0;
 
-export function updateRTPStats(bet: number, win: number) {
+exports.updateRTPStats = (bet, win) => {
   totalSpins += bet;
   totalWins += win;
-}
+};
 
-export function getCurrentRTP() {
+exports.getCurrentRTP = () => {
   if (totalSpins === 0) return 0;
   return totalWins / totalSpins;
-}
+};

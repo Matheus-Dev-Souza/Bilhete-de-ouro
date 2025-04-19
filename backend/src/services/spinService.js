@@ -1,25 +1,19 @@
-// src/services/spinService.ts
-import { SlotPlayModel } from '../models/SlotPlay';
-import { GAME_CONFIG } from '../config/constants';
-import { calculateWin } from '../utils/winCalculator';
-import { generateSymbols } from '../utils/symbolGenerator';
+// src/services/spinService.js
 
-export class SpinService {
-  static async executeSpin(
-    bet: number,
-    externalUserId: string,
-    partnerId: string
-  ) {
-    // Lógica do jogo
+import { SlotPlayModel } from '../models/SlotPlay.js';
+import { GAME_CONFIG, FINANCIAL } from '../config/constants.js';
+import { calculateWin } from '../utils/winCalculator.js';
+import { generateSymbols } from '../utils/symbolGenerator.js';
+
+class SpinService {
+  static async executeSpin(bet, externalUserId, partnerId) {
     const symbols = generateSymbols();
     const baseWin = calculateWin(symbols, bet);
     const dynamicRTP = this.calculateDynamicRTP();
     
-    // Ajustes financeiros
     const actualWin = Math.floor(baseWin * dynamicRTP);
     const ggr = (bet - actualWin) * FINANCIAL.GGR_PERCENTAGE;
 
-    // Registrar jogada
     const play = new SlotPlayModel({
       externalUserId,
       partnerId,
@@ -41,18 +35,14 @@ export class SpinService {
     };
   }
 
-  private static calculateDynamicRTP(): number {
-    // Lógica complexa de RTP dinâmico
+  static calculateDynamicRTP() {
     return GAME_CONFIG.BASE_RTP + 
       (Math.random() * GAME_CONFIG.VOLATILITY * 2 - GAME_CONFIG.VOLATILITY);
   }
 
-  private static async updateUserBalance(
-    userId: string, 
-    bet: number, 
-    win: number
-  ): Promise<number> {
-    // Implementar lógica real de atualização de saldo
-    return 1000 - bet + win; // Mock
+  static async updateUserBalance(userId, bet, win) {
+    return 1000 - bet + win; // Mocked balance update
   }
 }
+
+export { SpinService };

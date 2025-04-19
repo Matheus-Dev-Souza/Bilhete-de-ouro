@@ -1,6 +1,6 @@
 // src/config/constants.ts
 export const GAME_CONFIG = {
-    BASE_RTP: 0.96, // 96% RTP padrão
+    BASE_RTP: 0.96, 
     MIN_BET: 0.5,
     MAX_BET: 1000,
     SYMBOLS: ['🍒', '🔔', '🍋', '⭐', '💎', '7️⃣'],
@@ -9,5 +9,5 @@ export const GAME_CONFIG = {
   };
   
   export const FINANCIAL = {
-    GGR_PERCENTAGE: 0.15 // 15% do GGR para a plataforma
+    GGR_PERCENTAGE: 0.15 
   };

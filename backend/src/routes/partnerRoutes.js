@@ -1,3 +1,4 @@
+// src/routes/partnerRoutes.js
 import { Router } from 'express';
 
 const partnerRouter = Router();
@@ -9,4 +10,4 @@ partnerRouter.get('/me', (req, res) => {
 
 // Adicione outras rotas específicas para os donos de iframe/parceiros
 
-export { partnerRouter };
+export default partnerRouter; // Exportação padrão
